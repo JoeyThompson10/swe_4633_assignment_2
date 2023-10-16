@@ -9,6 +9,17 @@ function EnterGradePage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        if(!/^\d{9}$/.test(id)) {
+            setMessage("ID must be a 9-digit number");
+            return;
+        }
+
+        if(!/^\d+(\.\d+)?$/.test(grade)) {
+            setMessage("Grade must be a number");
+            return;
+        }
+
         try {
             const result = await AddGrade(id, grade);
             if (result.message) {
