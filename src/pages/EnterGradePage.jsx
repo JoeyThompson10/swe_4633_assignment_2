@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AddGrade } from '../MongoDbClient';
 import '../css/global.css';
 
 function EnterGradePage() {
+    const navigate = useNavigate();
+
     const [id, setId] = useState('');
     const [grade, setGrade] = useState('');
     const [message, setMessage] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        if(!/^\d{9}$/.test(id)) {
+
+        if (!/^\d{9}$/.test(id)) {
             setMessage("ID must be a 9-digit number");
             return;
         }
 
-        if(!/^\d+(\.\d+)?$/.test(grade)) {
+        if (!/^\d+(\.\d+)?$/.test(grade)) {
             setMessage("Grade must be a number");
             return;
         }
@@ -25,7 +28,8 @@ function EnterGradePage() {
             if (result.message) {
                 setMessage(result.message);
             } else {
-                setMessage('Grade entered successfully!');
+                alert("Grade added successfully");
+                navigate("/viewgrades");
             }
         } catch (error) {
             console.error("An error occurred while adding the grade:", error);

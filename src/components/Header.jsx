@@ -10,7 +10,6 @@ function Header() {
         Assignment 2 - Joey Thompson
       </div>
       <nav className="navigation">
-        <button onClick={() => navigate("/")}>Home</button>
         <button onClick={() => navigate("/about")}>About</button>
       </nav>
     </header>

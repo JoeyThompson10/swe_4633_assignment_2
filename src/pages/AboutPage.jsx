@@ -16,6 +16,10 @@ function AboutPage() {
           <li>One to display the required information in the database</li>
         </ul>
         <p>Please submit the URL and all source code to D2L.</p>
+
+        <h3>Implementation Details</h3>
+        <p>I overbuilt this assignment using my own <a href="https://github.com/JoeyThompson10/joeys-react-template" target="_blank" rel="noopener noreferrer">React + Vite template</a>.</p>
+        <p>The application is built with ReactJS and MongoDB (serverless functions and database) using the Realm SDK.</p>
       </div>
     </div>
   );
